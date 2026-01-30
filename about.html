@@ -26,9 +26,132 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <style>.coming-soon-bar{background:#F96D00;color:#fff;text-align:center;padding:0.5rem 1rem;font-size:0.9rem;font-weight:500;}.coming-soon-bar a{color:#fff;text-decoration:underline;font-weight:600;}.coming-soon-bar a:hover{color:#fff;opacity:0.9;}</style>
+    <style>
+      /* Sharp form layout – modal (same as home page) */
+      .request-form {
+        border-radius: 12px;
+        box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        padding: 1.75rem 1.5rem;
+      }
+      @media (min-width: 576px) {
+        .request-form { padding: 2rem 2rem; }
+      }
+      .request-form h2 { font-size: 1.35rem; letter-spacing: -0.02em; }
+      .request-form label.label {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: #374151;
+        margin-bottom: 0.35rem;
+      }
+      .request-form .form-group { margin-bottom: 1.1rem; }
+      .request-form .form-group:last-of-type { margin-bottom: 0; }
+      .request-form .form-control {
+        height: 48px !important;
+        border-radius: 10px !important;
+        border: 1px solid #e5e7eb !important;
+        background: #fafafa !important;
+        color: #111 !important;
+        font-size: 14px;
+        padding: 0 1rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .request-form .form-control::placeholder { color: #9ca3af; }
+      .request-form .form-control:focus {
+        border-color: #F96D00 !important;
+        background: #fff !important;
+        box-shadow: 0 0 0 3px rgba(249, 109, 0, 0.12) !important;
+        outline: none;
+      }
+      .request-form .btn-primary {
+        border-radius: 10px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        height: 48px;
+        margin-top: 0.25rem;
+      }
+      .request-form .form-field { position: relative; display: block; }
+      .request-form .form-field .select-wrap {
+        position: relative;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        background: #fafafa;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .request-form .form-field .select-wrap:focus-within {
+        border-color: #F96D00;
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(249, 109, 0, 0.12);
+      }
+      .request-form .form-field .select-wrap select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 48px;
+        padding: 0 2.75rem 0 1rem;
+        border: none;
+        background: transparent;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #111;
+        cursor: pointer;
+      }
+      .request-form .form-field .select-wrap select:focus { outline: none; }
+      .request-form .form-field .select-wrap .icon {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        pointer-events: none;
+        border: none !important;
+        width: auto;
+        height: auto;
+      }
+      .request-form .form-field .select-wrap .icon span {
+        color: #6b7280 !important;
+        font-size: 14px;
+        transition: color 0.2s ease;
+      }
+      .request-form .form-field .select-wrap:focus-within .icon span { color: #F96D00 !important; }
+      #waitlistModal .modal-content {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+      }
+      #waitlistModal .modal-header {
+        padding: 1.35rem 1.5rem 0;
+      }
+      #waitlistModal .modal-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #111;
+      }
+      #waitlistModal .modal-body {
+        padding: 0 1.5rem 1.5rem;
+        background: #fff;
+      }
+      #waitlistModal .request-form--modal {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 3px rgba(0,0,0,0.06);
+      }
+      /* About section image – fit fully, no crop, no quality loss */
+      .about-section-img {
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        min-height: 400px;
+      }
+      @media (min-width: 768px) {
+        .about-section-img { min-height: 500px; }
+      }
+    </style>
   </head>
   <body>
-    <div class="coming-soon-bar">We're building Getdrives. <a href="index.html">Join the waitlist</a> to be first when we launch.</div>
+    <div class="coming-soon-bar">We're building Getdrives. <a href="#" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a> to be first when we launch.</div>
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Get<span>drives</span></a>
@@ -66,6 +189,7 @@
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
           	<span class="subheading">Our Services</span>
             <h2 class="mb-2">Our Services</h2>
+            <p class="mb-0 mt-3" style="max-width: 640px; margin-left: auto; margin-right: auto;">Transportation is an essential part of daily life. We're building an ecosystem for everyone—riders, drivers, and businesses—so every actor in the industry has a comfort zone that works.</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -73,10 +197,10 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-placeholder"></span></div>
-	                <h3 class="heading mb-0 pl-3">24/7 Car Support</h3>
+	              	<div class="icon"><span class="flaticon-route"></span></div>
+	                <h3 class="heading mb-0 pl-3">Standard Rides</h3>
                 </div>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+                <p>Point-to-point trips on your schedule. Reliable, transparent pricing for commuters and everyday travel.</p>
               </div>
             </div>      
           </div>
@@ -84,10 +208,10 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-placeholder"></span></div>
-	                <h3 class="heading mb-0 pl-3">Lots of location</h3>
+	              	<div class="icon"><span class="flaticon-backpack"></span></div>
+	                <h3 class="heading mb-0 pl-3">Logistics</h3>
                 </div>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+                <p>Move goods and cargo efficiently. From last-mile delivery to larger hauls, we connect senders and movers.</p>
               </div>
             </div>      
           </div>
@@ -95,10 +219,10 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-placeholder"></span></div>
-	                <h3 class="heading mb-0 pl-3">Reservation</h3>
+	              	<div class="icon"><span class="flaticon-rent"></span></div>
+	                <h3 class="heading mb-0 pl-3">Rentals</h3>
                 </div>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+                <p>Flexible vehicle rental by hour or day. For errands, trips, or when you need wheels without the commitment.</p>
               </div>
             </div>      
           </div>
@@ -106,10 +230,10 @@
             <div class="media block-6 services">
               <div class="media-body py-md-4">
               	<div class="d-flex mb-3 align-items-center">
-	              	<div class="icon"><span class="flaticon-placeholder"></span></div>
-	                <h3 class="heading mb-0 pl-3">Rental Cars</h3>
+	              	<div class="icon"><span class="flaticon-online-booking"></span></div>
+	                <h3 class="heading mb-0 pl-3">Shared Rides</h3>
                 </div>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+                <p>Share the ride and the cost. Same direction, fewer empty seats—better for your pocket and the road.</p>
               </div>
             </div>      
           </div>
@@ -122,44 +246,35 @@
     	<div class="container">
     		<div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          	<span class="subheading">Work flow</span>
+          	<span class="subheading">Get started</span>
             <h2 class="mb-3">How it works</h2>
           </div>
         </div>
     		<div class="row">
-    			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+    			<div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services services-2">
               <div class="media-body py-md-4 text-center">
-              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
-                <h3>Pick Destination</h3>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-online-booking"></span></div>
+                <h3>Sign up as a user</h3>
+                <p>Create an account, set your location, and book rides whenever you need to move. Simple, transparent pricing.</p>
               </div>
             </div>      
           </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services services-2">
-              <div class="media-body py-md-4 text-center">
-              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-select"></span></div>
-                <h3>Select Term</h3>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services services-2">
               <div class="media-body py-md-4 text-center">
               	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
-                <h3>Choose A Car</h3>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+                <h3>Sign up as a driver</h3>
+                <p>Join our driver network, set your own schedule, and earn on the road. We handle the platform; you drive.</p>
               </div>
             </div>      
           </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services services-2">
               <div class="media-body py-md-4 text-center">
-              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-review"></span></div>
-                <h3>Enjoy The Ride</h3>
-                <p>A small river named Duden flows by their place and supplies it with you</p>
+              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-customer-support"></span></div>
+                <h3>Sign up as a business</h3>
+                <p>Manage fleet, trips, and team travel in one place. Reliable transport for your operations and staff.</p>
               </div>
             </div>      
           </div>
@@ -170,22 +285,117 @@
 		<section class="ftco-section ftco-no-pt ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 about-section-img d-flex justify-content-center align-items-center" style="background-image: url(images/about-section.png);">
 					</div>
 					<div class="col-md-6 wrap-about py-md-5 ftco-animate">
 	          <div class="heading-section mb-5 pl-md-5">
 	          	<span class="subheading">About us</span>
-	            <h2 class="mb-4">Choose A Perfect Car</h2>
+	            <h2 class="mb-4">Moving Nigeria, Smarter</h2>
 
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-	            <p><a href="#" class="btn btn-primary">Search Vehicle</a></p>
+	            <p>GetDrives is a Nigeria-first transportation platform built for how we actually move.</p>
+	            <p>We connect everyday riders, professional drivers, and businesses through one simple system offering standard rides, shared trips, and flexible vehicle rentals. No confusion. No guesswork. Just reliable movement.</p>
+	            <p>We understand the real challenges of transportation in Nigeria: unpredictable pricing, safety concerns, limited options, and wasted time. That's why GetDrives is designed to be transparent, accessible, and practical whether you're commuting to work, earning on your own schedule, or running a business that depends on mobility.</p>
+	            <p>We're launching soon, and we're building this together with the people who use it. Riders, drivers, and businesses—everyone has a seat.</p>
+	            <p><strong>Get in early. Let's move smarter.</strong></p>
+	            <p><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#waitlistModal">Join for Free</a></p>
 	          </div>
 					</div>
 				</div>
 			</div>
 		</section>
 
+    <!-- Waitlist modal -->
+    <div class="modal fade" id="waitlistModal" tabindex="-1" role="dialog" aria-labelledby="waitlistModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <h3 class="modal-title" id="waitlistModalLabel">Join the waitlist</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body pt-0">
+            <p class="mb-3" style="font-size: 0.95rem; color: #6c757d;">Be the first to know when we launch. We'll notify you.</p>
+            <div id="waitlist-modal-success" class="alert alert-success mb-3" style="display: none;">You're on the list. We'll notify you when we launch.</div>
+            <form id="waitlist-modal-form" class="request-form request-form--modal">
+              <div class="form-group">
+                <label for="waitlist-modal-email" class="label">Email</label>
+                <input type="email" name="email" id="waitlist-modal-email" class="form-control" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="waitlist-modal-name" class="label">Name (optional)</label>
+                <input type="text" name="name" id="waitlist-modal-name" class="form-control" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="waitlist-modal-state" class="label">State</label>
+                <div class="form-field">
+                  <div class="select-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="state" id="waitlist-modal-state" class="form-control">
+                      <option value="">Select state</option>
+                      <option value="abia">Abia</option>
+                      <option value="adamawa">Adamawa</option>
+                      <option value="akwa-ibom">Akwa Ibom</option>
+                      <option value="anambra">Anambra</option>
+                      <option value="bauchi">Bauchi</option>
+                      <option value="bayelsa">Bayelsa</option>
+                      <option value="benue">Benue</option>
+                      <option value="borno">Borno</option>
+                      <option value="cross-river">Cross River</option>
+                      <option value="delta">Delta</option>
+                      <option value="ebonyi">Ebonyi</option>
+                      <option value="edo">Edo</option>
+                      <option value="ekiti">Ekiti</option>
+                      <option value="enugu">Enugu</option>
+                      <option value="fct">FCT Abuja</option>
+                      <option value="gombe">Gombe</option>
+                      <option value="imo">Imo</option>
+                      <option value="jigawa">Jigawa</option>
+                      <option value="kaduna">Kaduna</option>
+                      <option value="kano">Kano</option>
+                      <option value="katsina">Katsina</option>
+                      <option value="kebbi">Kebbi</option>
+                      <option value="kogi">Kogi</option>
+                      <option value="kwara">Kwara</option>
+                      <option value="lagos">Lagos</option>
+                      <option value="nasarawa">Nasarawa</option>
+                      <option value="niger">Niger</option>
+                      <option value="ogun">Ogun</option>
+                      <option value="ondo">Ondo</option>
+                      <option value="osun">Osun</option>
+                      <option value="oyo">Oyo</option>
+                      <option value="plateau">Plateau</option>
+                      <option value="rivers">Rivers</option>
+                      <option value="sokoto">Sokoto</option>
+                      <option value="taraba">Taraba</option>
+                      <option value="yobe">Yobe</option>
+                      <option value="zamfara">Zamfara</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="waitlist-modal-role" class="label">I'm signing up as</label>
+                <div class="form-field">
+                  <div class="select-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="role" id="waitlist-modal-role" class="form-control">
+                      <option value="">Select</option>
+                      <option value="rider">Rider</option>
+                      <option value="driver">Driver</option>
+                      <option value="business">Business</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <button type="submit" class="btn btn-primary py-3 px-4 w-100">Join the waitlist</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -193,7 +403,7 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About Getdrives</h2>
-              <p>Getdrives is coming soon—rides for riders, drivers, and businesses. Nigeria first. <a href="index.html" class="text-primary">Join the waitlist</a> to be first.</p>
+              <p>Getdrives is coming soon—rides for riders, drivers, and businesses. Nigeria first. <a href="#" class="text-primary" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a> to be first.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -205,7 +415,7 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Information</h2>
               <ul class="list-unstyled">
-                <li><a href="index.html" class="py-2 d-block">Join the waitlist</a></li>
+                <li><a href="#" class="py-2 d-block" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a></li>
                 <li><a href="about.html" class="py-2 d-block">About</a></li>
                 <li><a href="blog.html" class="py-2 d-block">Blog</a></li>
                 <li><a href="contact.html" class="py-2 d-block">Contact</a></li>
@@ -269,6 +479,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+  <script>
+    document.getElementById('waitlist-modal-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('waitlist-modal-success').style.display = 'block';
+      this.style.display = 'none';
+    });
+    $('#waitlistModal').on('hidden.bs.modal', function() {
+      var form = document.getElementById('waitlist-modal-form');
+      var success = document.getElementById('waitlist-modal-success');
+      form.style.display = '';
+      form.reset();
+      success.style.display = 'none';
+    });
+  </script>
   </body>
 </html>

@@ -8201,6 +8201,20 @@ h1, h2, h3, h4, h5,
   font-size: 20px;
   text-transform: uppercase; }
 
+.navbar-brand-logo {
+  display: inline-block;
+  line-height: 0;
+  flex-shrink: 0; }
+.navbar-brand-logo svg,
+.navbar-brand-logo img {
+  display: block;
+  height: 28px;
+  width: auto; }
+@media (min-width: 992px) {
+  .navbar-brand-logo svg,
+  .navbar-brand-logo img {
+    height: 32px; } }
+
 .hero-wrap {
   width: 100%;
   height: 850px;
