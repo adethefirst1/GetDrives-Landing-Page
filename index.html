@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Getdrives — Coming Soon | Your Ride, Simplified</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* Getdrives – phone mockup, iOS-style (“What we are bringing”) */
+      .getdrive-signup-section .getdrive-phone-mockup { max-width: 100%; margin: 0 auto; }
+      .getdrive-what-we-bring-section .getdrive-phone-mockup {
+        max-width: 300px;
+        width: 100%;
+      }
+      .getdrive-phone-frame {
+        background: #1a1a1a;
+        border: 3px solid #333;
+        border-radius: 42px;
+        padding: 12px 8px 16px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        max-width: 100%;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+      .getdrive-what-we-bring-section .getdrive-phone-frame {
+        width: 100%;
+        max-width: 300px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .getdrive-phone-notch {
+        width: 120px;
+        height: 30px;
+        background: #1a1a1a;
+        border-radius: 0 0 18px 18px;
+        margin: -4px auto 8px;
+      }
+      .getdrive-what-we-bring-section .getdrive-phone-notch {
+        display: none;
+      }
+      .getdrive-phone-screen {
+        background: #f5f5f5;
+        border-radius: 28px;
+        overflow: hidden;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .getdrive-what-we-bring-section .getdrive-phone-screen {
+        width: 100%;
+        max-height: 520px;
+        height: auto;
+        border-radius: 40px;
+        background: #000;
+      }
+      .getdrive-signup-step { min-height: 200px; display: flex; align-items: center; }
+      .getdrive-what-we-bring-section .getdrive-signup-step {
+        min-height: 0;
+        align-items: stretch;
+        max-height: 520px;
+      }
+      .getdrive-signup-step-img { padding: 0; align-items: stretch; }
+      .getdrive-screen-img {
+        display: block;
+        border-radius: 28px;
+        max-width: 100%;
+        height: auto;
+        vertical-align: top;
+      }
+      .getdrive-what-we-bring-section .getdrive-screen-img {
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        display: block;
+        border-radius: 38px;
+        object-fit: contain;
+        object-position: top center;
+      }
+      @media (min-width: 768px) {
+        .getdrive-what-we-bring-section .getdrive-phone-mockup { max-width: 320px; }
+        .getdrive-what-we-bring-section .getdrive-phone-frame { max-width: 320px; }
+        .getdrive-what-we-bring-section .getdrive-phone-screen,
+        .getdrive-what-we-bring-section .getdrive-signup-step,
+        .getdrive-what-we-bring-section .getdrive-screen-img { max-height: 560px; }
+      }
+      .getdrive-screen-content {
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        color: #333;
+      }
+      .getdrive-screen-content h4 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+      .getdrive-screen-content p { font-size: 0.9rem; color: #555; margin-bottom: 1.25rem; line-height: 1.4; }
+      .getdrive-screen-icon {
+        font-size: 3rem;
+        color: #F96D00;
+        margin-bottom: 1rem;
+      }
+      .getdrive-screen-icon .ion-ios-person-add,
+      .getdrive-screen-icon .ion-ios-checkmark-circle,
+      .getdrive-screen-icon .ion-ios-car { font-size: 3rem; }
+      .getdrive-screen-field {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #999;
+      }
+      .getdrive-screen-btn {
+        display: inline-block;
+        background: #e0e0e0;
+        color: #555;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      .getdrive-screen-btn-primary { background: #F96D00; color: #fff; }
+      .getdrive-steps-list { padding-left: 0; }
+      .getdrive-step-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.75rem;
+      }
+      .getdrive-step-item:last-child { margin-bottom: 0; }
+      .getdrive-step-num {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        background: rgba(255,255,255,0.2);
+        border: 2px solid rgba(255,255,255,0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-right: 1rem;
+      }
+      .getdrive-step-item h4 { color: #fff; font-size: 1.15rem; margin-bottom: 0.35rem; }
+      .getdrive-step-item p { color: rgba(255,255,255,0.85); font-size: 0.95rem; margin: 0; line-height: 1.4; }
+      .getdrive-signup-carousel.owl-carousel .owl-stage-outer { overflow: visible; }
+      .getdrive-signup-carousel.owl-carousel .owl-item { display: flex; }
+      /* What we are bringing – step list sync with carousel */
+      .getdrive-what-we-bring-section .getdrive-step-item {
+        transition: filter 0.4s ease, opacity 0.4s ease;
+      }
+      .getdrive-what-we-bring-section .getdrive-step-item:not(.active) {
+        filter: blur(4px);
+        opacity: 0.5;
+      }
+      .getdrive-what-we-bring-section .getdrive-step-item.active {
+        filter: none;
+        opacity: 1;
+      }
+      .getdrive-what-we-bring-section .getdrive-step-item .getdrive-step-num {
+        transition: background 0.3s ease, border-color 0.3s ease;
+      }
+      .getdrive-what-we-bring-section .getdrive-step-item.active .getdrive-step-num {
+        background: rgba(249, 109, 0, 0.35);
+        border-color: #F96D00;
+      }
+      .getdrive-what-we-bring-section .getdrive-step-item {
+        cursor: pointer;
+      }
+      .getdrive-what-we-bring-section .getdrive-step-item a { cursor: default; }
+      /* Coming soon top bar */
+      .coming-soon-bar {
+        background: #F96D00;
+        color: #fff;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .coming-soon-bar a { color: #fff; text-decoration: underline; font-weight: 600; }
+      .coming-soon-bar a:hover { color: #fff; opacity: 0.9; }
+      /* Car rental section – spacing from hero */
+      .rental-search-section.ftco-section { padding-top: 4rem; padding-bottom: 3rem; }
+      @media (min-width: 768px) {
+        .rental-search-section.ftco-section { padding-top: 5rem; padding-bottom: 4rem; }
+      }
+      #rental-model:disabled { opacity: 0.7; cursor: not-allowed; }
+      .rental-cta-btn { transition: transform 0.5s ease, opacity 0.5s ease; }
+      .rental-cta-btn.drive-out { transform: translateX(120px); opacity: 0; pointer-events: none; }
+
+      /* Sharp form layout – hero & modal (same look) */
+      .request-form {
+        border-radius: 12px;
+        box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        padding: 1.75rem 1.5rem;
+      }
+      @media (min-width: 576px) {
+        .request-form { padding: 2rem 2rem; }
+      }
+      .request-form h2 { font-size: 1.35rem; letter-spacing: -0.02em; }
+      .request-form label.label {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: #374151;
+        margin-bottom: 0.35rem;
+      }
+      .request-form .form-group { margin-bottom: 1.1rem; }
+      .request-form .form-group:last-of-type { margin-bottom: 0; }
+      .request-form .form-control {
+        height: 48px !important;
+        border-radius: 10px !important;
+        border: 1px solid #e5e7eb !important;
+        background: #fafafa !important;
+        color: #111 !important;
+        font-size: 14px;
+        padding: 0 1rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .request-form .form-control::placeholder { color: #9ca3af; }
+      .request-form .form-control:focus {
+        border-color: #F96D00 !important;
+        background: #fff !important;
+        box-shadow: 0 0 0 3px rgba(249, 109, 0, 0.12) !important;
+        outline: none;
+      }
+      .request-form .btn-primary {
+        border-radius: 10px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        height: 48px;
+        margin-top: 0.25rem;
+      }
+
+      /* Classy modern dropdown – hero & modal */
+      .request-form .form-field { position: relative; display: block; }
+      .request-form .form-field .select-wrap {
+        position: relative;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+        background: #fafafa;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .request-form .form-field .select-wrap:focus-within {
+        border-color: #F96D00;
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(249, 109, 0, 0.12);
+      }
+      .request-form .form-field .select-wrap select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 48px;
+        padding: 0 2.75rem 0 1rem;
+        border: none;
+        background: transparent;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #111;
+        cursor: pointer;
+      }
+      .request-form .form-field .select-wrap select:focus { outline: none; }
+      .request-form .form-field .select-wrap .icon {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        pointer-events: none;
+        border: none !important;
+        width: auto;
+        height: auto;
+      }
+      .request-form .form-field .select-wrap .icon span {
+        color: #6b7280 !important;
+        font-size: 14px;
+        transition: color 0.2s ease;
+      }
+      .request-form .form-field .select-wrap:focus-within .icon span { color: #F96D00 !important; }
+
+      /* Modal container – sharp and modern */
+      #waitlistModal .modal-content {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+      }
+      #waitlistModal .modal-header {
+        padding: 1.35rem 1.5rem 0;
+      }
+      #waitlistModal .modal-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #111;
+      }
+      #waitlistModal .modal-body {
+        padding: 0 1.5rem 1.5rem;
+        background: #fff;
+      }
+      #waitlistModal .request-form--modal {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 3px rgba(0,0,0,0.06);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coming-soon-bar">
+      We’re building Getdrives. <a href="#" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a> to be first when we launch.
+    </div>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Get<span>drives</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <div class="hero-wrap" style="background-image: url('images/hero-bg.png');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text justify-content-start align-items-center">
+          <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end">
+          	<div class="text">
+	            <span class="d-block mb-2" style="font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.95;">Coming soon</span>
+	            <h1 class="mb-4"><span>Getdrives</span> — <span>your ride, alive</span></h1>
+	            <p style="font-size: 18px;">Rides for everyone—riders, drivers, and businesses. Standard, shared, or rental. Nigeria first.</p>
+	            <a href="#" class="btn btn-primary py-3 px-4 mt-3" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a>
+            </div>
+          </div>
+          <div class="col-lg-2 col"></div>
+          <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex" id="hero-waitlist">
+          	<form action="#" class="request-form ftco-animate" id="hero-waitlist-form">
+          		<h2>Join the waitlist</h2>
+	    				<p class="mb-3" style="font-size: 0.9rem; opacity: 0.9;">Be the first to know when we launch. We’ll notify you.</p>
+	    				<div id="hero-waitlist-success" class="alert alert-success mb-3" style="display: none;">You’re on the list. We’ll notify you when we launch.</div>
+	    				<div class="form-group">
+	    					<label for="hero-email" class="label">Email</label>
+	    					<input type="email" name="email" id="hero-email" class="form-control" placeholder="your@email.com" required>
+	    				</div>
+	    				<div class="form-group">
+	    					<label for="hero-name" class="label">Name (optional)</label>
+	    					<input type="text" name="name" id="hero-name" class="form-control" placeholder="Your name">
+	    				</div>
+	    				<div class="form-group">
+	    					<label for="hero-state" class="label">State</label>
+	    					<div class="form-field">
+	    						<div class="select-wrap">
+	    							<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	    							<select name="state" id="hero-state" class="form-control">
+	    								<option value="">Select state</option>
+	    								<option value="abia">Abia</option>
+	    								<option value="adamawa">Adamawa</option>
+	    								<option value="akwa-ibom">Akwa Ibom</option>
+	    								<option value="anambra">Anambra</option>
+	    								<option value="bauchi">Bauchi</option>
+	    								<option value="bayelsa">Bayelsa</option>
+	    								<option value="benue">Benue</option>
+	    								<option value="borno">Borno</option>
+	    								<option value="cross-river">Cross River</option>
+	    								<option value="delta">Delta</option>
+	    								<option value="ebonyi">Ebonyi</option>
+	    								<option value="edo">Edo</option>
+	    								<option value="ekiti">Ekiti</option>
+	    								<option value="enugu">Enugu</option>
+	    								<option value="fct">FCT Abuja</option>
+	    								<option value="gombe">Gombe</option>
+	    								<option value="imo">Imo</option>
+	    								<option value="jigawa">Jigawa</option>
+	    								<option value="kaduna">Kaduna</option>
+	    								<option value="kano">Kano</option>
+	    								<option value="katsina">Katsina</option>
+	    								<option value="kebbi">Kebbi</option>
+	    								<option value="kogi">Kogi</option>
+	    								<option value="kwara">Kwara</option>
+	    								<option value="lagos">Lagos</option>
+	    								<option value="nasarawa">Nasarawa</option>
+	    								<option value="niger">Niger</option>
+	    								<option value="ogun">Ogun</option>
+	    								<option value="ondo">Ondo</option>
+	    								<option value="osun">Osun</option>
+	    								<option value="oyo">Oyo</option>
+	    								<option value="plateau">Plateau</option>
+	    								<option value="rivers">Rivers</option>
+	    								<option value="sokoto">Sokoto</option>
+	    								<option value="taraba">Taraba</option>
+	    								<option value="yobe">Yobe</option>
+	    								<option value="zamfara">Zamfara</option>
+	    							</select>
+	    						</div>
+	    					</div>
+	    				</div>
+	    				<div class="form-group">
+	    					<label for="hero-role" class="label">I'm signing up as</label>
+	    					<div class="form-field">
+	    						<div class="select-wrap">
+	    							<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	    							<select name="role" id="hero-role" class="form-control">
+	    								<option value="">Select</option>
+	    								<option value="rider">Rider</option>
+	    								<option value="driver">Driver</option>
+	    								<option value="business">Business</option>
+	    							</select>
+	    						</div>
+	    					</div>
+	    				</div>
+	            <div class="form-group">
+	              <button type="submit" class="btn btn-primary py-3 px-4 w-100">Join the waitlist</button>
+	            </div>
+	    			</form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt rental-search-section">
+    	<div class="container">
+	    	<div class="row">
+					<div class="col-md-12">
+						<div class="search-wrap-1 ftco-animate mb-5">
+							<form action="#" class="search-property-1" id="rental-form">
+		        		<div class="row">
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="rental-brand">Brand</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="brand" id="rental-brand" class="form-control">
+		                      	<option value="">Select brand</option>
+		                        <option value="toyota">Toyota</option>
+		                        <option value="honda">Honda</option>
+		                        <option value="hyundai">Hyundai</option>
+		                        <option value="nissan">Nissan</option>
+		                        <option value="ford">Ford</option>
+		                        <option value="chevrolet">Chevrolet</option>
+		                        <option value="mercedes">Mercedes-Benz</option>
+		                        <option value="bmw">BMW</option>
+		                        <option value="kia">Kia</option>
+		                        <option value="mazda">Mazda</option>
+		                        <option value="volkswagen">Volkswagen</option>
+		                        <option value="audi">Audi</option>
+		                        <option value="lexus">Lexus</option>
+		                        <option value="peugeot">Peugeot</option>
+		                        <option value="renault">Renault</option>
+		                        <option value="jeep">Jeep</option>
+		                        <option value="land-rover">Land Rover</option>
+		                        <option value="volvo">Volvo</option>
+		                        <option value="porsche">Porsche</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="rental-model">Model</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="model" id="rental-model" class="form-control" disabled>
+		                      	<option value="">Select brand first</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="rental-year">Year</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="year" id="rental-year" class="form-control">
+		                      	<option value="">Year</option>
+		                        <option value="2024">2024</option>
+		                        <option value="2023">2023</option>
+		                        <option value="2022">2022</option>
+		                        <option value="2021">2021</option>
+		                        <option value="2020">2020</option>
+		                        <option value="2019">2019</option>
+		                        <option value="2018">2018</option>
+		                        <option value="2017">2017</option>
+		                        <option value="2016">2016</option>
+		                        <option value="2015">2015</option>
+		                        <option value="2014">2014</option>
+		                        <option value="2013">2013</option>
+		                        <option value="2012">2012</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="rental-price">Max price/day</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="price" id="rental-price" class="form-control">
+		                      	<option value="">Any</option>
+		                        <option value="20000">₦20,000</option>
+		                        <option value="30000">₦30,000</option>
+		                        <option value="50000">₦50,000</option>
+		                        <option value="75000">₦75,000</option>
+		                        <option value="100000">₦100,000</option>
+		                        <option value="150000">₦150,000</option>
+		                        <option value="200000">₦200,000</option>
+		                        <option value="250000">₦250,000</option>
+		                        <option value="300000">₦300,000</option>
+		                        <option value="400000">₦400,000</option>
+		                        <option value="500000">₦500,000</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-self-end">
+		        				<div class="form-group">
+		        					<div class="form-field">
+				                <button type="button" id="rental-join-waitlist-btn" class="form-control btn btn-primary text-center rental-cta-btn">Join the waitlist</button>
+				              </div>
+			              </div>
+		        			</div>
+		        		</div>
+		        	</form>
+		        </div>
+					</div>
+	    	</div>
+	    </div>
+    </section>
+
+    <section class="ftco-section services-section img getdrive-signup-section getdrive-what-we-bring-section" style="background-image: url(images/bg_2.jpg);">
+    	<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row justify-content-center mb-5">
+          <div class="col-md-10 text-center heading-section heading-section-white ftco-animate">
+          	<span class="subheading">Coming soon</span>
+            <h2 class="mb-3">What we are bringing</h2>
+            <p class="mb-0" style="opacity: 0.9; font-size: 1.1rem;">A glimpse of what’s ahead. Join the waitlist and be first.</p>
+          </div>
+        </div>
+    		<div class="row align-items-center justify-content-center">
+          <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 ftco-animate">
+            <div class="getdrive-phone-mockup">
+              <div class="getdrive-phone-frame">
+                <div class="getdrive-phone-notch"></div>
+                <div class="getdrive-phone-screen">
+                  <div class="owl-carousel getdrive-signup-carousel getdrive-what-we-bring-carousel">
+                    <div class="item getdrive-signup-step getdrive-signup-step-img">
+                      <img src="images/what-we-bring-1.png" alt="Getdrives — detailed ride picking: choose car, passengers, luggage, bid, and pay." class="getdrive-screen-img">
+                    </div>
+                    <div class="item getdrive-signup-step getdrive-signup-step-img">
+                      <img src="images/what-we-bring-2.png" alt="Getdrives — luxury cars for rent. Available cars for you." class="getdrive-screen-img">
+                    </div>
+                    <div class="item getdrive-signup-step getdrive-signup-step-img">
+                      <img src="images/what-we-bring-3.png" alt="Getdrives — your scheduled pickup confirmed." class="getdrive-screen-img">
+                    </div>
+                    <div class="item getdrive-signup-step getdrive-signup-step-img">
+                      <img src="images/what-we-bring-4.png" alt="Getdrives — explore the world. Touring with ease." class="getdrive-screen-img">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6 ftco-animate">
+            <div class="getdrive-steps-list heading-section-white" id="what-we-bring-steps">
+              <div class="getdrive-step-item active" data-slide="0">
+                <span class="getdrive-step-num">1</span>
+                <div>
+                  <h4>Pick your ride, down to the detail</h4>
+                  <p>Every detail under your control. Soon, choosing your ride will feel this precise—and this easy.</p>
+                </div>
+              </div>
+              <div class="getdrive-step-item" data-slide="1">
+                <span class="getdrive-step-num">2</span>
+                <div>
+                  <h4>Luxury cars, one tap away</h4>
+                  <p>The ride you’ve imagined is almost here. Premium cars for rent—coming soon.</p>
+                </div>
+              </div>
+              <div class="getdrive-step-item" data-slide="2">
+                <span class="getdrive-step-num">3</span>
+                <div>
+                  <h4>Your ride, perfectly planned</h4>
+                  <p>Schedule it. Confirm it. Soon, confirmation will be this effortless.</p>
+                </div>
+              </div>
+              <div class="getdrive-step-item" data-slide="3">
+                <span class="getdrive-step-num">4</span>
+                <div>
+                  <h4>Explore further—with Getdrives</h4>
+                  <p>The road is waiting. Soon, touring will feel this simple.</p>
+                </div>
+              </div>
+              <div class="mt-4 pt-3">
+                <a href="#" class="btn btn-primary py-3 px-4" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a>
+              </div>
+            </div>
+          </div>
+    		</div>
+    	</div>
+    </section>
+
+    <!-- Waitlist modal -->
+    <div class="modal fade" id="waitlistModal" tabindex="-1" role="dialog" aria-labelledby="waitlistModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <h3 class="modal-title" id="waitlistModalLabel">Join the waitlist</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body pt-0">
+            <p class="mb-3" style="font-size: 0.95rem; color: #6c757d;">Be the first to know when we launch. We'll notify you.</p>
+            <div id="waitlist-modal-success" class="alert alert-success mb-3" style="display: none;">You're on the list. We'll notify you when we launch.</div>
+            <form id="waitlist-modal-form" class="request-form request-form--modal">
+              <div class="form-group">
+                <label for="waitlist-modal-email" class="label">Email</label>
+                <input type="email" name="email" id="waitlist-modal-email" class="form-control" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="waitlist-modal-name" class="label">Name (optional)</label>
+                <input type="text" name="name" id="waitlist-modal-name" class="form-control" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="waitlist-modal-state" class="label">State</label>
+                <div class="form-field">
+                  <div class="select-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="state" id="waitlist-modal-state" class="form-control">
+                      <option value="">Select state</option>
+                      <option value="abia">Abia</option>
+                      <option value="adamawa">Adamawa</option>
+                      <option value="akwa-ibom">Akwa Ibom</option>
+                      <option value="anambra">Anambra</option>
+                      <option value="bauchi">Bauchi</option>
+                      <option value="bayelsa">Bayelsa</option>
+                      <option value="benue">Benue</option>
+                      <option value="borno">Borno</option>
+                      <option value="cross-river">Cross River</option>
+                      <option value="delta">Delta</option>
+                      <option value="ebonyi">Ebonyi</option>
+                      <option value="edo">Edo</option>
+                      <option value="ekiti">Ekiti</option>
+                      <option value="enugu">Enugu</option>
+                      <option value="fct">FCT Abuja</option>
+                      <option value="gombe">Gombe</option>
+                      <option value="imo">Imo</option>
+                      <option value="jigawa">Jigawa</option>
+                      <option value="kaduna">Kaduna</option>
+                      <option value="kano">Kano</option>
+                      <option value="katsina">Katsina</option>
+                      <option value="kebbi">Kebbi</option>
+                      <option value="kogi">Kogi</option>
+                      <option value="kwara">Kwara</option>
+                      <option value="lagos">Lagos</option>
+                      <option value="nasarawa">Nasarawa</option>
+                      <option value="niger">Niger</option>
+                      <option value="ogun">Ogun</option>
+                      <option value="ondo">Ondo</option>
+                      <option value="osun">Osun</option>
+                      <option value="oyo">Oyo</option>
+                      <option value="plateau">Plateau</option>
+                      <option value="rivers">Rivers</option>
+                      <option value="sokoto">Sokoto</option>
+                      <option value="taraba">Taraba</option>
+                      <option value="yobe">Yobe</option>
+                      <option value="zamfara">Zamfara</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="waitlist-modal-role" class="label">I'm signing up as</label>
+                <div class="form-field">
+                  <div class="select-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="role" id="waitlist-modal-role" class="form-control">
+                      <option value="">Select</option>
+                      <option value="rider">Rider</option>
+                      <option value="driver">Driver</option>
+                      <option value="business">Business</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <button type="submit" class="btn btn-primary py-3 px-4 w-100">Join the waitlist</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">About Getdrives</h2>
+              <p>Getdrives is coming soon—rides for riders, drivers, and businesses. Nigeria first. <a href="#" class="text-primary" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a> to be first.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block" data-toggle="modal" data-target="#waitlistModal">Join the waitlist</a></li>
+                <li><a href="about.html" class="py-2 d-block">About</a></li>
+                <li><a href="blog.html" class="py-2 d-block">Blog</a></li>
+                <li><a href="contact.html" class="py-2 d-block">Contact</a></li>
+                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                <li><a href="#" class="py-2 d-block">How it works</a></li>
+                <li><a href="contact.html" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Getdrives. Coming soon.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('hero-waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('hero-waitlist-success').style.display = 'block';
+      this.style.display = 'none';
+    });
+    document.getElementById('rental-join-waitlist-btn').addEventListener('click', function() {
+      var btn = this;
+      btn.classList.add('drive-out');
+      setTimeout(function() {
+        $('#waitlistModal').modal('show');
+        btn.classList.remove('drive-out');
+      }, 500);
+    });
+    document.getElementById('waitlist-modal-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('waitlist-modal-success').style.display = 'block';
+      this.style.display = 'none';
+    });
+    $('#waitlistModal').on('hidden.bs.modal', function() {
+      var form = document.getElementById('waitlist-modal-form');
+      var success = document.getElementById('waitlist-modal-success');
+      form.style.display = '';
+      form.reset();
+      success.style.display = 'none';
+    });
+  </script>
+  </body>
+</html>
