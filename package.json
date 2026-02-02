@@ -1,0 +1,8 @@
+{
+  "name": "getdrives-landing",
+  "private": true,
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -c-1 -o",
+    "dev:game": "cd car-game && npm run dev"
+  }
+}
