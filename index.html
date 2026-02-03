@@ -165,17 +165,33 @@
       .getdrive-step-item p { color: rgba(255,255,255,0.85); font-size: 0.95rem; margin: 0; line-height: 1.4; }
       .getdrive-signup-carousel.owl-carousel .owl-stage-outer { overflow: visible; }
       .getdrive-signup-carousel.owl-carousel .owl-item { display: flex; }
+      /* Isolate phone mockup on mobile so scroll stays smooth */
+      @media (max-width: 767px) {
+        .getdrive-what-we-bring-section .getdrive-phone-mockup {
+          contain: layout style paint;
+        }
+      }
       /* What we are bringing – step list sync with carousel */
       .getdrive-what-we-bring-section .getdrive-step-item {
-        transition: filter 0.4s ease, opacity 0.4s ease;
+        transition: opacity 0.4s ease;
       }
       .getdrive-what-we-bring-section .getdrive-step-item:not(.active) {
-        filter: blur(4px);
         opacity: 0.5;
       }
       .getdrive-what-we-bring-section .getdrive-step-item.active {
-        filter: none;
         opacity: 1;
+      }
+      /* Blur only on desktop – filter: blur() causes hang on mobile */
+      @media (min-width: 768px) {
+        .getdrive-what-we-bring-section .getdrive-step-item {
+          transition: filter 0.4s ease, opacity 0.4s ease;
+        }
+        .getdrive-what-we-bring-section .getdrive-step-item:not(.active) {
+          filter: blur(4px);
+        }
+        .getdrive-what-we-bring-section .getdrive-step-item.active {
+          filter: none;
+        }
       }
       .getdrive-what-we-bring-section .getdrive-step-item .getdrive-step-num {
         transition: background 0.3s ease, border-color 0.3s ease;

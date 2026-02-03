@@ -29,14 +29,17 @@
 	};
 
 
-	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+	// Disable parallax on mobile to prevent hang/jank on phone mockup and hero
+	if (!isMobile.any()) {
+		$(window).stellar({
+			responsive: true,
+			parallaxBackgrounds: true,
+			parallaxElements: true,
+			horizontalScrolling: false,
+			hideDistantElements: false,
+			scrollProperty: 'scroll'
+		});
+	}
 
 
 	var fullHeight = function() {
@@ -59,8 +62,10 @@
 	};
 	loader();
 
-	// Scrollax
-   $.Scrollax();
+	// Scrollax – disable on mobile to avoid scroll jank
+	if (!isMobile.any()) {
+		$.Scrollax();
+	}
 
 	var carousel = function() {
 		$('.carousel-testimony').owlCarousel({
